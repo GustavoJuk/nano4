@@ -42,7 +42,15 @@
                             <constraint firstItem="qNA-BR-x9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="vvP-d0-H7n"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pastas" largeTitleDisplayMode="always" id="V3j-dR-aSn"/>
+                    <navigationItem key="navigationItem" title="Pastas" largeTitleDisplayMode="always" id="V3j-dR-aSn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="4mC-0T-VI8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zjx-4G-pcn">
+                                <rect key="frame" x="-23" y="-15" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Editar"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="qNA-BR-x9q" id="bop-IJ-IY9"/>
                         <segue destination="epZ-R0-x2Z" kind="show" identifier="Anotações" id="4gz-Ll-ZuD"/>
