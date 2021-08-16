@@ -66,6 +66,13 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func toNotaScreen() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
+        
+        show(vc, sender: self)
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -88,7 +95,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 //        let sb = UIStoryboard(name: "Main", bundle: nil)
 //        let vc = sb.instantiateViewController(identifier: "SecondVC") as! SecondViewController
 //
-//        show(vc, sender: self)\
+//        show(vc, sender: self)
         let folder = self.data![indexPath.row]
         
         let alert = UIAlertController(title: "Teste", message: "Tô testando garai", preferredStyle: .alert)

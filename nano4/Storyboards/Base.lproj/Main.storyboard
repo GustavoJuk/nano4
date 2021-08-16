@@ -45,7 +45,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal">
-                                                <imageReference key="image" image="plus.rectangle.on.folder" catalog="system" symbolScale="large"/>
+                                                <imageReference key="image" image="folder.badge.plus" catalog="system" symbolScale="large"/>
                                             </state>
                                             <connections>
                                                 <action selector="addTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lQR-yi-Vk2"/>
@@ -60,6 +60,9 @@
                                             <state key="normal">
                                                 <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
                                             </state>
+                                            <connections>
+                                                <action selector="toNotaScreen" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpk-Tj-1vr"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                 </items>
@@ -122,8 +125,20 @@
                     <view key="view" contentMode="scaleToFill" id="tfq-cM-vpx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzL-Xq-Buf">
+                                <rect key="frame" x="178" y="411.66666666666669" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dyh-mV-ipb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VzL-Xq-Buf" firstAttribute="centerY" secondItem="tfq-cM-vpx" secondAttribute="centerY" id="eiz-rG-XXj"/>
+                            <constraint firstItem="VzL-Xq-Buf" firstAttribute="centerX" secondItem="tfq-cM-vpx" secondAttribute="centerX" id="evb-n3-rf1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0tA-Mw-rZb"/>
                 </viewController>
@@ -151,7 +166,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus.rectangle.on.folder" catalog="system" width="128" height="96"/>
+        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
