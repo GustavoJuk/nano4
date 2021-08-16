@@ -16,6 +16,12 @@
 		7711240C26C5B0BE0007CC54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7711240A26C5B0BE0007CC54 /* LaunchScreen.storyboard */; };
 		777E7AAD26C6E898004A774E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E7AAC26C6E898004A774E /* SecondViewController.swift */; };
 		77E5F21326CAE86800FD2D16 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F21226CAE86800FD2D16 /* ThirdViewController.swift */; };
+		77E5F25A26CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25426CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift */; };
+		77E5F25B26CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25526CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift */; };
+		77E5F25C26CAF66700FD2D16 /* Notas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25626CAF66700FD2D16 /* Notas+CoreDataClass.swift */; };
+		77E5F25D26CAF66700FD2D16 /* Notas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25726CAF66700FD2D16 /* Notas+CoreDataProperties.swift */; };
+		77E5F25E26CAF66700FD2D16 /* Pastas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25826CAF66700FD2D16 /* Pastas+CoreDataClass.swift */; };
+		77E5F25F26CAF66700FD2D16 /* Pastas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25926CAF66700FD2D16 /* Pastas+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		7711240D26C5B0BE0007CC54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777E7AAC26C6E898004A774E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		77E5F21226CAE86800FD2D16 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		77E5F25426CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anotacoes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		77E5F25526CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anotacoes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77E5F25626CAF66700FD2D16 /* Notas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notas+CoreDataClass.swift"; sourceTree = "<group>"; };
+		77E5F25726CAF66700FD2D16 /* Notas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notas+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77E5F25826CAF66700FD2D16 /* Pastas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pastas+CoreDataClass.swift"; sourceTree = "<group>"; };
+		77E5F25926CAF66700FD2D16 /* Pastas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pastas+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 		771123FB26C5B0BD0007CC54 /* nano4 */ = {
 			isa = PBXGroup;
 			children = (
+				77E5F26026CAF67B00FD2D16 /* Classes */,
 				7711240826C5B0BE0007CC54 /* Assets.xcassets */,
 				777E7AAE26C6E912004A774E /* Controllers */,
 				777E7AAF26C6E92D004A774E /* Storyboards */,
@@ -90,6 +103,19 @@
 				7711240A26C5B0BE0007CC54 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		77E5F26026CAF67B00FD2D16 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				77E5F25426CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift */,
+				77E5F25526CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift */,
+				77E5F25626CAF66700FD2D16 /* Notas+CoreDataClass.swift */,
+				77E5F25726CAF66700FD2D16 /* Notas+CoreDataProperties.swift */,
+				77E5F25826CAF66700FD2D16 /* Pastas+CoreDataClass.swift */,
+				77E5F25926CAF66700FD2D16 /* Pastas+CoreDataProperties.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,11 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E5F25C26CAF66700FD2D16 /* Notas+CoreDataClass.swift in Sources */,
 				7711240126C5B0BD0007CC54 /* ViewController.swift in Sources */,
+				77E5F25B26CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift in Sources */,
+				77E5F25D26CAF66700FD2D16 /* Notas+CoreDataProperties.swift in Sources */,
+				77E5F25A26CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift in Sources */,
+				77E5F25F26CAF66700FD2D16 /* Pastas+CoreDataProperties.swift in Sources */,
 				771123FD26C5B0BD0007CC54 /* AppDelegate.swift in Sources */,
 				7711240726C5B0BD0007CC54 /* nano4.xcdatamodeld in Sources */,
 				777E7AAD26C6E898004A774E /* SecondViewController.swift in Sources */,
 				77E5F21326CAE86800FD2D16 /* ThirdViewController.swift in Sources */,
+				77E5F25E26CAF66700FD2D16 /* Pastas+CoreDataClass.swift in Sources */,
 				771123FF26C5B0BD0007CC54 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
