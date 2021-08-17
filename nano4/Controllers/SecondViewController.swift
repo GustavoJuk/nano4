@@ -9,6 +9,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var pastas: Pastas?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

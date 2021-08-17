@@ -15,6 +15,7 @@
 		7711240926C5B0BE0007CC54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7711240826C5B0BE0007CC54 /* Assets.xcassets */; };
 		7711240C26C5B0BE0007CC54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7711240A26C5B0BE0007CC54 /* LaunchScreen.storyboard */; };
 		777E7AAD26C6E898004A774E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E7AAC26C6E898004A774E /* SecondViewController.swift */; };
+		77D43A5A26CC2C940056B9AA /* CustomUiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D43A5926CC2C940056B9AA /* CustomUiButton.swift */; };
 		77E5F21326CAE86800FD2D16 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F21226CAE86800FD2D16 /* ThirdViewController.swift */; };
 		77E5F25A26CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25426CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift */; };
 		77E5F25B26CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5F25526CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift */; };
@@ -35,6 +36,7 @@
 		7711240B26C5B0BE0007CC54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7711240D26C5B0BE0007CC54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777E7AAC26C6E898004A774E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		77D43A5926CC2C940056B9AA /* CustomUiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUiButton.swift; sourceTree = "<group>"; };
 		77E5F21226CAE86800FD2D16 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		77E5F25426CAF66700FD2D16 /* Anotacoes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anotacoes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77E5F25526CAF66700FD2D16 /* Anotacoes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anotacoes+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				77E5F25726CAF66700FD2D16 /* Notas+CoreDataProperties.swift */,
 				77E5F25826CAF66700FD2D16 /* Pastas+CoreDataClass.swift */,
 				77E5F25926CAF66700FD2D16 /* Pastas+CoreDataProperties.swift */,
+				77D43A5926CC2C940056B9AA /* CustomUiButton.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				7711240726C5B0BD0007CC54 /* nano4.xcdatamodeld in Sources */,
 				777E7AAD26C6E898004A774E /* SecondViewController.swift in Sources */,
 				77E5F21326CAE86800FD2D16 /* ThirdViewController.swift in Sources */,
+				77D43A5A26CC2C940056B9AA /* CustomUiButton.swift in Sources */,
 				77E5F25E26CAF66700FD2D16 /* Pastas+CoreDataClass.swift in Sources */,
 				771123FF26C5B0BD0007CC54 /* SceneDelegate.swift in Sources */,
 			);

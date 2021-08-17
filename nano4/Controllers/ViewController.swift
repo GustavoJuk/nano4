@@ -10,15 +10,37 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIButton!
+
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     var data: [Pastas]?
+    var filteredItems: [Pastas] = []
+    private var isTableEditMode: Bool = false{
+        didSet{
+            habilitarModoEdicao(isTableEditMode)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
         fetchFolder()
     }
@@ -35,6 +57,14 @@ class ViewController: UIViewController {
         catch{
             
         }
+    }
+    
+    func filterContentForSearchText(_ searchText: String, category: Pastas? = nil) {
+        filteredItems = (data?.filter { (pasta: Pastas) -> Bool in
+            return (pasta.titulo?.lowercased().contains(searchText.lowercased()))!
+        })!
+      
+      tableView.reloadData()
     }
     
     @IBAction func addTapped(_ sender: Any) {
@@ -67,35 +97,19 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func toNotaScreen() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
-        
-        show(vc, sender: self)
-    }
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let pasta = self.data![indexPath.row]
-        
-        cell.textLabel?.text = pasta.titulo
-        
-        return cell
+    @IBAction func editTapped (_ sender: Any) {
+        isTableEditMode = !isTableEditMode
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data?.count ?? 0
+    func habilitarModoEdicao(_ condicao: Bool){
+        tableView.setEditing(condicao, animated: true)
+        let titulo = condicao ? "OK" : "Editar"
+        let font = condicao ? UIFont.boldSystemFont(ofSize: 18.0) : UIFont.systemFont(ofSize: 18.0)
+        editButton.setTitle(titulo, for: .normal)
+        editButton.titleLabel?.font = font
     }
     
-    
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = sb.instantiateViewController(identifier: "SecondVC") as! SecondViewController
-//
-//        show(vc, sender: self)
+    func editItems (indexPath: IndexPath){
         let folder = self.data![indexPath.row]
         
         let alert = UIAlertController(title: "Teste", message: "Tô testando garai", preferredStyle: .alert)
@@ -126,6 +140,62 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         self.present(alert, animated: true, completion: nil)
     }
     
+    @objc func accessoryEditButtonTapped(_ sender: CustomUIButton){
+        self.editItems(indexPath: sender.indexPath!)
+    }
+    
+    @IBAction func toNotaScreen() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
+        
+        show(vc, sender: self)
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let pasta:Pastas
+        if isFiltering {
+            pasta = filteredItems[indexPath.row]
+        }else{
+            pasta = data![indexPath.row]
+        }
+        
+        cell.textLabel?.text = pasta.titulo
+        cell.imageView?.image = UIImage(systemName: "folder")
+        
+        let editButton = CustomUIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25), customButtonType: .edit)
+        editButton.indexPath = indexPath
+        editButton.addTarget(self, action: #selector(accessoryEditButtonTapped(_:)), for: .touchUpInside)
+        cell.editingAccessoryView = editButton
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering{
+            return filteredItems.count
+        }
+        return self.data?.count ?? 0
+    }
+    
+    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "SecondVC") as! SecondViewController
+
+        if isFiltering {
+            vc.pastas = filteredItems[indexPath.row]
+        }else{
+            vc.pastas = data![indexPath.row]
+        }
+        
+        show(vc, sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: ""){ (action, view, completionHandler) in
             let folderToRemove = self.data![indexPath.row]
@@ -144,5 +214,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         action.image = UIImage(systemName: "trash.fill")
         
         return UISwipeActionsConfiguration(actions: [action])
+    }
+}
+
+extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
 }
