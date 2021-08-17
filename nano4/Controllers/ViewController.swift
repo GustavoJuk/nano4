@@ -11,8 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -41,6 +41,8 @@ class ViewController: UIViewController {
         searchController.searchBar.placeholder = "Buscar"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        indicator.hidesWhenStopped = true
         
         fetchFolder()
     }
@@ -153,6 +155,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering{
+            return filteredItems.count
+        }
+        return self.data?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
@@ -174,15 +184,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering{
-            return filteredItems.count
-        }
-        return self.data?.count ?? 0
-    }
-    
-    
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "SecondVC") as! SecondViewController
