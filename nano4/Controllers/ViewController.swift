@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -50,7 +51,8 @@ class ViewController: UIViewController {
     func fetchFolder () {
         
         do{
-            self.data = try context.fetch(Pastas.fetchRequest())
+            let folder = try context.fetch(Pastas.fetchRequest() as NSFetchRequest<Pastas>)
+            self.data = self.sortFolders(folder)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -82,6 +84,7 @@ class ViewController: UIViewController {
             let newFolder = Pastas(context: self.context)
             textfield.placeholder = "Nome"
             newFolder.titulo = textfield.text
+            newFolder.ordem = (self.data?.last?.ordem ?? 0) + 1
             
             do{
                 try self.context.save()
@@ -152,6 +155,13 @@ class ViewController: UIViewController {
         
         show(vc, sender: self)
     }
+    
+    func sortFolders(_ pastas: [Pastas]) -> [Pastas] {
+        return pastas.sorted { pasta1, pasta2 in
+            return pasta1.ordem < pasta2.ordem
+            
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -215,6 +225,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         action.image = UIImage(systemName: "trash.fill")
         
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let moveFolder = data![sourceIndexPath.row]
+        let destinationFolder = data![destinationIndexPath.row]
+        let temp = moveFolder.ordem
+        
+        moveFolder.ordem = destinationFolder.ordem
+        destinationFolder.ordem = temp
+        
+        do{
+            try context.save()
+        }
+        catch{
+            
+        }
+        
+        self.fetchFolder()
     }
 }
 
