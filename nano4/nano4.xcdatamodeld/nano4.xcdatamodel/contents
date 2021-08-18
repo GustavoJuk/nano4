@@ -2,10 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Anotacoes" representedClassName="Anotacoes" syncable="YES">
         <attribute name="titulo" optional="YES" attributeType="String"/>
-        <relationship name="notas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notas" inverseName="anotacoes" inverseEntity="Notas"/>
+        <relationship name="notas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notas" inverseName="anotacoes" inverseEntity="Notas"/>
         <relationship name="pastas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pastas" inverseName="anotacoes" inverseEntity="Pastas"/>
     </entity>
     <entity name="Notas" representedClassName="Notas" syncable="YES">
+        <attribute name="texto" optional="YES" attributeType="String"/>
         <attribute name="titulo" optional="YES" attributeType="String"/>
         <relationship name="anotacoes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Anotacoes" inverseName="notas" inverseEntity="Anotacoes"/>
     </entity>
@@ -15,8 +16,8 @@
         <relationship name="anotacoes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Anotacoes" inverseName="pastas" inverseEntity="Anotacoes"/>
     </entity>
     <elements>
-        <element name="Anotacoes" positionX="-36" positionY="18" width="128" height="74"/>
-        <element name="Notas" positionX="124.3287353515625" positionY="-194.2761535644531" width="128" height="59"/>
+        <element name="Anotacoes" positionX="-36" positionY="18" width="128" height="88"/>
+        <element name="Notas" positionX="124.3287353515625" positionY="-194.2761535644531" width="128" height="88"/>
         <element name="Pastas" positionX="-145.106689453125" positionY="396.5169677734375" width="128" height="74"/>
     </elements>
 </model>

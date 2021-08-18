@@ -22,6 +22,22 @@ extension Anotacoes {
 
 }
 
+extension Anotacoes {
+
+    @objc(addNotasObject:)
+    @NSManaged public func addToNotas(_ value: Notas)
+
+    @objc(removeAnotacoesObject:)
+    @NSManaged public func removeFromNotas(_ value: Notas)
+
+    @objc(addAnotacoes:)
+    @NSManaged public func addToNotas(_ values: NSSet)
+
+    @objc(removeAnotacoes:)
+    @NSManaged public func removeFromNotas(_ values: NSSet)
+
+}
+
 extension Anotacoes : Identifiable {
 
 }

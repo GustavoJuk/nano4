@@ -17,6 +17,7 @@ extension Notas {
     }
 
     @NSManaged public var titulo: String?
+    @NSManaged public var texto: String?
     @NSManaged public var anotacoes: Anotacoes?
 
 }

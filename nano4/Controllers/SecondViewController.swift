@@ -76,6 +76,37 @@ class SecondViewController: UIViewController {
       tableView.reloadData()
     }
     
+    @IBAction func addTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Nova anotação", message: "Digite um título para esta anotação", preferredStyle: .alert)
+        alert.addTextField()
+        
+        let cancelButton = UIAlertAction(title: "Cancelar", style: .cancel)
+        let submitButton = UIAlertAction(title: "Salvar", style: .default) { (action) in
+            
+            let textfield = alert.textFields![0]
+
+            let newFolder = Anotacoes(context: self.context)
+            textfield.placeholder = "Nome"
+            newFolder.titulo = textfield.text
+            
+            do{
+                try self.context.save()
+            }
+            catch{
+                    
+            }
+            
+            self.fetchFolder()
+        }
+        
+        alert.addAction(cancelButton)
+        alert.addAction(submitButton)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
     @IBAction func editTapped (_ sender: Any) {
         isTableEditMode = !isTableEditMode
     }
