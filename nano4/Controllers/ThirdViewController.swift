@@ -9,6 +9,8 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    var anotacoes: Anotacoes?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

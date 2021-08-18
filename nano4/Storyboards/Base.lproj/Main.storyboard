@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="qNA-BR-x9q">
-                                <rect key="frame" x="0.0" y="108" width="390" height="658"/>
+                                <rect key="frame" x="0.0" y="108" width="390" height="653"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" red="0.2156948720850751" green="0.21561618762459278" blue="0.23412156403312023" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="separatorColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Hlc-rC-R0x">
                                         <rect key="frame" x="20" y="49" width="350" height="43.666667938232422"/>
@@ -34,14 +34,11 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3df-eR-46x">
-                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="1sj-RN-oae"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                                 <items>
                                     <barButtonItem id="GSw-fO-Z6Y">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D7l-h7-nSC">
-                                            <rect key="frame" x="16" y="8.6666666666666643" width="34" height="27"/>
+                                            <rect key="frame" x="16" y="13.666666666666664" width="34" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal">
@@ -55,7 +52,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="h5q-nJ-bmb"/>
                                     <barButtonItem id="Oi6-h0-sb2">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-vb-K0X">
-                                            <rect key="frame" x="348.33333333333331" y="10.333333333333334" width="25.666666666666686" height="23.666666666666664"/>
+                                            <rect key="frame" x="348.33333333333331" y="15.333333333333334" width="25.666666666666686" height="23.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
@@ -111,24 +108,95 @@
             </objects>
             <point key="canvasLocation" x="1047.6923076923076" y="113.74407582938387"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Todas iCloud-->
         <scene sceneID="n3r-sI-4OP">
             <objects>
                 <viewController storyboardIdentifier="SecondVC" id="epZ-R0-x2Z" customClass="SecondViewController" customModule="nano4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3HM-Da-CJO">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="XEb-lE-2RK">
+                                <rect key="frame" x="0.0" y="160" width="390" height="606"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xSl-n4-e42">
+                                        <rect key="frame" x="20" y="49" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xSl-n4-e42" id="FyT-wh-6Xl">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1098634824" green="0.1096463427" blue="0.11764822160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lT-4g-zox">
+                                <rect key="frame" x="0.0" y="766" width="390" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="J97-k7-HDT"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9qA-vU-jPd"/>
+                                    <barButtonItem id="kZw-FU-Gsl">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="33B-eU-Gw4">
+                                            <rect key="frame" x="348.33333333333331" y="10.333333333333334" width="25.666666666666686" height="23.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="toNotaScreen" destination="epZ-R0-x2Z" eventType="touchUpInside" id="T2b-jx-E5l"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-ht-t3V">
+                                <rect key="frame" x="174" y="778" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MZB-QZ-4N3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2lT-4g-zox" firstAttribute="bottom" secondItem="MZB-QZ-4N3" secondAttribute="bottom" id="2Wr-9i-AM3"/>
+                            <constraint firstItem="XEb-lE-2RK" firstAttribute="leading" secondItem="MZB-QZ-4N3" secondAttribute="leading" id="G1k-r2-Avd"/>
+                            <constraint firstItem="2lT-4g-zox" firstAttribute="top" secondItem="XEb-lE-2RK" secondAttribute="bottom" id="Ihd-FX-6ii"/>
+                            <constraint firstItem="2lT-4g-zox" firstAttribute="trailing" secondItem="XEb-lE-2RK" secondAttribute="trailing" id="MBD-Ib-WLY"/>
+                            <constraint firstItem="2lT-4g-zox" firstAttribute="leading" secondItem="XEb-lE-2RK" secondAttribute="leading" id="PmF-Ar-6lO"/>
+                            <constraint firstItem="dO7-ht-t3V" firstAttribute="centerX" secondItem="3HM-Da-CJO" secondAttribute="centerX" id="Txr-Az-ewT"/>
+                            <constraint firstItem="dO7-ht-t3V" firstAttribute="centerY" secondItem="3HM-Da-CJO" secondAttribute="centerY" constant="366.5" id="Wwz-v1-kss"/>
+                            <constraint firstItem="XEb-lE-2RK" firstAttribute="top" secondItem="MZB-QZ-4N3" secondAttribute="top" constant="20" id="eA2-WY-iKV"/>
+                            <constraint firstItem="MZB-QZ-4N3" firstAttribute="trailing" secondItem="XEb-lE-2RK" secondAttribute="trailing" id="scO-4B-a2Q"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LP6-pO-Vfx"/>
+                    <navigationItem key="navigationItem" title="Todas iCloud" largeTitleDisplayMode="always" id="LP6-pO-Vfx">
+                        <barButtonItem key="rightBarButtonItem" id="fHY-zv-b1q">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sgG-J6-cBx">
+                                <rect key="frame" x="349.66666666666669" y="10.333333333333334" width="24.333333333333314" height="23.666666666666664"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="editTapped:" destination="epZ-R0-x2Z" eventType="touchUpInside" id="gKF-wr-QNb"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="sgG-J6-cBx" id="XPx-Jc-yus"/>
+                        <outlet property="tableView" destination="XEb-lE-2RK" id="Kqs-Pe-Byw"/>
                         <segue destination="rcK-Uj-qQA" kind="show" identifier="Notas" id="3B2-wi-vzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBJ-l1-11F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="114"/>
+            <point key="canvasLocation" x="1973.8461538461538" y="113.74407582938387"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="adj-84-VM3">
@@ -178,6 +246,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">

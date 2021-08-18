@@ -117,7 +117,7 @@ class ViewController: UIViewController {
     func editItems (indexPath: IndexPath){
         let folder = self.data![indexPath.row]
         
-        let alert = UIAlertController(title: "Teste", message: "Tô testando garai", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Renomear", message: "", preferredStyle: .alert)
         alert.addTextField()
         
         let textfield = alert.textFields![0]
