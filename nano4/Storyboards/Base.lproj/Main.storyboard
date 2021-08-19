@@ -50,23 +50,8 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="h5q-nJ-bmb"/>
-                                    <barButtonItem id="Oi6-h0-sb2">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-vb-K0X">
-                                            <rect key="frame" x="348.33333333333331" y="15.333333333333334" width="25.666666666666686" height="23.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="toNotaScreen" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpk-Tj-1vr"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ULH-0S-fbq">
-                                <rect key="frame" x="354" y="88" width="10" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,12 +60,8 @@
                             <constraint firstItem="3df-eR-46x" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6kr-R7-3nK"/>
                             <constraint firstItem="qNA-BR-x9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7Dg-lH-O3Y"/>
                             <constraint firstItem="qNA-BR-x9q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7Hd-fb-Cdn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ULH-0S-fbq" secondAttribute="trailing" constant="26" id="8tP-f8-dQ6"/>
-                            <constraint firstItem="qNA-BR-x9q" firstAttribute="top" secondItem="ULH-0S-fbq" secondAttribute="bottom" id="C5u-wC-D9K"/>
-                            <constraint firstItem="ULH-0S-fbq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GRp-rC-RL6"/>
                             <constraint firstItem="3df-eR-46x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R0y-YC-Huq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qNA-BR-x9q" secondAttribute="trailing" id="X3A-1F-Wpj"/>
-                            <constraint firstItem="ULH-0S-fbq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="354" id="jaG-W7-Qft"/>
                             <constraint firstItem="3df-eR-46x" firstAttribute="centerX" secondItem="qNA-BR-x9q" secondAttribute="centerX" id="lvM-rF-JqB"/>
                         </constraints>
                     </view>
@@ -99,7 +80,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="zjx-4G-pcn" id="Fn5-E2-2MU"/>
-                        <outlet property="indicator" destination="ULH-0S-fbq" id="RLL-6Y-a2y"/>
                         <outlet property="tableView" destination="qNA-BR-x9q" id="bop-IJ-IY9"/>
                         <segue destination="epZ-R0-x2Z" kind="show" identifier="Anotações" id="4gz-Ll-ZuD"/>
                     </connections>
@@ -140,7 +120,7 @@
                                 <items>
                                     <barButtonItem id="RKC-8d-DWE">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="p1s-sh-UPY">
-                                            <rect key="frame" x="16" y="0.0" width="25" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="358" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <imageReference key="image" image="doc.badge.plus" catalog="system" symbolScale="large"/>
@@ -150,27 +130,8 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9qA-vU-jPd"/>
-                                    <barButtonItem id="kZw-FU-Gsl">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="33B-eU-Gw4">
-                                            <rect key="frame" x="348.33333333333331" y="10.333333333333334" width="25.666666666666686" height="23.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="toNotaScreen" destination="epZ-R0-x2Z" eventType="touchUpInside" id="T2b-jx-E5l"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-ht-t3V">
-                                <rect key="frame" x="174" y="778" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MZB-QZ-4N3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,8 +141,6 @@
                             <constraint firstItem="2lT-4g-zox" firstAttribute="top" secondItem="XEb-lE-2RK" secondAttribute="bottom" id="Ihd-FX-6ii"/>
                             <constraint firstItem="2lT-4g-zox" firstAttribute="trailing" secondItem="XEb-lE-2RK" secondAttribute="trailing" id="MBD-Ib-WLY"/>
                             <constraint firstItem="2lT-4g-zox" firstAttribute="leading" secondItem="XEb-lE-2RK" secondAttribute="leading" id="PmF-Ar-6lO"/>
-                            <constraint firstItem="dO7-ht-t3V" firstAttribute="centerX" secondItem="3HM-Da-CJO" secondAttribute="centerX" id="Txr-Az-ewT"/>
-                            <constraint firstItem="dO7-ht-t3V" firstAttribute="centerY" secondItem="3HM-Da-CJO" secondAttribute="centerY" constant="366.5" id="Wwz-v1-kss"/>
                             <constraint firstItem="XEb-lE-2RK" firstAttribute="top" secondItem="MZB-QZ-4N3" secondAttribute="top" constant="20" id="eA2-WY-iKV"/>
                             <constraint firstItem="MZB-QZ-4N3" firstAttribute="trailing" secondItem="XEb-lE-2RK" secondAttribute="trailing" id="scO-4B-a2Q"/>
                         </constraints>
@@ -201,7 +160,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="counter" destination="dO7-ht-t3V" id="jHN-nu-asa"/>
                         <outlet property="editButton" destination="sgG-J6-cBx" id="XPx-Jc-yus"/>
                         <outlet property="tableView" destination="XEb-lE-2RK" id="Kqs-Pe-Byw"/>
                         <segue destination="rcK-Uj-qQA" kind="show" identifier="Notas" id="3B2-wi-vzm"/>
@@ -269,10 +227,6 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="caixaTexto" destination="D18-hv-c2Q" id="k1J-M8-bAI"/>
-                        <outlet property="titulo" destination="mOY-Ma-Lt1" id="bcK-kG-jLv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UR-hU-Q0B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,7 +255,6 @@
         <image name="doc.badge.plus" catalog="system" width="119" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let searchController = UISearchController(searchResultsController: nil)
@@ -42,9 +41,7 @@ class ViewController: UIViewController {
         searchController.searchBar.placeholder = "Buscar"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        indicator.hidesWhenStopped = true
-        
+                
         fetchFolder()
     }
     
@@ -147,13 +144,6 @@ class ViewController: UIViewController {
     
     @objc func accessoryEditButtonTapped(_ sender: CustomUIButton){
         self.editItems(indexPath: sender.indexPath!)
-    }
-    
-    @IBAction func toNotaScreen() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
-        
-        show(vc, sender: self)
     }
     
     func sortFolders(_ pastas: [Pastas]) -> [Pastas] {

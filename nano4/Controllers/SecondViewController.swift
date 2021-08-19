@@ -10,22 +10,13 @@ import CoreData
 
 class SecondViewController: UIViewController {
 
-    var pastas: Pastas?
+    public var pastas: Pastas?
+    var complitionHendler: (() -> Void)?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var counter: UILabel!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let searchController = UISearchController(searchResultsController: nil)
     
-    var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
-    }
-    var data: [Anotacoes]?
-    var filteredItems: [Anotacoes] = []
     private var isTableEditMode: Bool = false{
         didSet{
             habilitarModoEdicao(isTableEditMode)
@@ -37,43 +28,12 @@ class SecondViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        
-//        contador()
-        
-        fetchFolder()
     }
     
-//    func contador() {
-//        let pasta: Pastas
-//        counter.text = "\(pasta.anotacoes?.count ?? 0) Notas"
-//    }
-    
-    func fetchFolder () {
-        
-        do{
-            self.data = try context.fetch(Anotacoes.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+    func fetchFolderArea() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
-        catch{
-            
-        }
-    }
-    
-    func filterContentForSearchText(_ searchText: String, category: Pastas? = nil) {
-        filteredItems = (data?.filter { (pasta: Anotacoes) -> Bool in
-            return (pasta.titulo?.lowercased().contains(searchText.lowercased()))!
-        })!
-      
-      tableView.reloadData()
     }
     
     @IBAction func addTapped(_ sender: Any) {
@@ -90,6 +50,7 @@ class SecondViewController: UIViewController {
             textfield.placeholder = "Nome"
             newFolder.titulo = textfield.text
             
+            self.pastas?.addToAnotacoes(newFolder)
             do{
                 try self.context.save()
             }
@@ -97,7 +58,7 @@ class SecondViewController: UIViewController {
                     
             }
             
-            self.fetchFolder()
+            self.fetchFolderArea()
         }
         
         alert.addAction(cancelButton)
@@ -120,7 +81,7 @@ class SecondViewController: UIViewController {
     }
     
     func editItems (indexPath: IndexPath){
-        let folder = self.data![indexPath.row]
+        let folder = self.pastas?.anotacoes?.array[indexPath.row] as! Anotacoes
         
         let alert = UIAlertController(title: "Renomear", message: "", preferredStyle: .alert)
         alert.addTextField()
@@ -141,7 +102,7 @@ class SecondViewController: UIViewController {
                 
             }
             
-            self.fetchFolder()
+            self.fetchFolderArea()
         }
         
         alert.addAction(cancelButton)
@@ -153,33 +114,20 @@ class SecondViewController: UIViewController {
     @objc func accessoryEditButtonTapped(_ sender: CustomUIButton){
         self.editItems(indexPath: sender.indexPath!)
     }
-    
-    @IBAction func toNotaScreen() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
-        
-        show(vc, sender: self)
-    }
 }
 
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering{
-            return filteredItems.count
-        }
-        return self.data?.count ?? 0
+        return pastas?.anotacoes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         let anotacao:Anotacoes
-        if isFiltering {
-            anotacao = filteredItems[indexPath.row]
-        }else{
-            anotacao = data![indexPath.row]
-        }
+        
+        anotacao = pastas?.anotacoes?.array[indexPath.row] as! Anotacoes
         
         cell.textLabel?.text = anotacao.titulo
         cell.imageView?.image = UIImage(systemName: "folder")
@@ -196,20 +144,16 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource{
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "ThirdVC") as! ThirdViewController
 
-        if isFiltering {
-            vc.anotacoes = filteredItems[indexPath.row]
-        }else{
-            vc.anotacoes = data![indexPath.row]
-        }
+        vc.anotacoes = pastas?.anotacoes?.array[indexPath.row] as? Anotacoes
         
         show(vc, sender: self)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: ""){ (action, view, completionHandler) in
-            let folderToRemove = self.data![indexPath.row]
+            _ = self.pastas?.anotacoes?.array[indexPath.row] as! Anotacoes
             
-            self.context.delete(folderToRemove)
+            self.pastas?.removeFromAnotacoes(at: indexPath.row)
             
             do{
                 try self.context.save()
@@ -218,17 +162,10 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource{
                 
             }
             
-            self.fetchFolder()
+            self.fetchFolderArea()
         }
         action.image = UIImage(systemName: "trash.fill")
         
         return UISwipeActionsConfiguration(actions: [action])
-    }
-}
-
-extension SecondViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
     }
 }

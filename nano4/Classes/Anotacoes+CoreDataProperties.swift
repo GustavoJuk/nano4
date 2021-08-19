@@ -31,10 +31,10 @@ extension Anotacoes {
     @NSManaged public func removeFromNotas(_ value: Notas)
 
     @objc(addAnotacoes:)
-    @NSManaged public func addToNotas(_ values: NSSet)
+    @NSManaged public func addToNotas(_ values: NSOrderedSet)
 
     @objc(removeAnotacoes:)
-    @NSManaged public func removeFromNotas(_ values: NSSet)
+    @NSManaged public func removeFromNotas(_ values: NSOrderedSet)
 
 }
 
