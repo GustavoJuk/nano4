@@ -7,9 +7,12 @@
 
 import UIKit
 import CoreData
-//oi
+
+//MARK: -Classes
 class ViewController: UIViewController {
 
+    
+    //MARK: -Atributos
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
 
@@ -30,6 +33,11 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: -Métodos
+    
+    
+    
+    //MARK: Sobrecarga
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,9 +52,7 @@ class ViewController: UIViewController {
                 
         fetchFolder()
     }
-    
-    //adfadkf;kad;
-    
+        
     func fetchFolder () {
         
         do{
@@ -156,6 +162,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: -Sub-classes (Herança)
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
